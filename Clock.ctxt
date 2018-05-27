@@ -1,0 +1,11 @@
+#BlueJ class context
+comment0.target=Clock
+comment1.params=xVal\ yVal
+comment1.target=Clock(int,\ int)
+comment2.params=page
+comment2.target=void\ draw(java.awt.Graphics)
+comment3.params=
+comment3.target=int\ getX()
+comment4.params=
+comment4.target=int\ getY()
+numComments=5

@@ -1,0 +1,21 @@
+#BlueJ class context
+comment0.target=Vehicle
+comment1.params=xLoc\ yLoc\ goingRight
+comment1.target=Vehicle(int,\ int,\ boolean)
+comment2.params=
+comment2.target=void\ move()
+comment3.params=goingRight
+comment3.target=void\ reset(boolean)
+comment4.params=page
+comment4.target=void\ draw(java.awt.Graphics)
+comment5.params=page
+comment5.target=void\ drawCar(java.awt.Graphics)
+comment6.params=page
+comment6.target=void\ drawHitCar(java.awt.Graphics)
+comment7.params=speed\ change
+comment7.target=void\ speedUp(int,\ boolean)
+comment8.params=xVal\ yVal\ gameOver
+comment8.target=boolean\ touches(int,\ int,\ boolean)
+comment9.params=
+comment9.target=boolean\ isHit()
+numComments=10

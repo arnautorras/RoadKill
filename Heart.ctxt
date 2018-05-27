@@ -1,0 +1,13 @@
+#BlueJ class context
+comment0.target=Heart
+comment1.params=xVal\ yVal
+comment1.target=Heart(int,\ int)
+comment2.params=page
+comment2.target=void\ draw(java.awt.Graphics)
+comment3.params=
+comment3.target=void\ fill()
+comment4.params=
+comment4.target=void\ empty()
+comment5.params=
+comment5.target=boolean\ isEmpty()
+numComments=6

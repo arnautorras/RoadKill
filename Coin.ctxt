@@ -1,0 +1,11 @@
+#BlueJ class context
+comment0.target=Coin
+comment1.params=xVal\ yVal
+comment1.target=Coin(int,\ int)
+comment2.params=
+comment2.target=int\ getX()
+comment3.params=
+comment3.target=int\ getY()
+comment4.params=page
+comment4.target=void\ draw(java.awt.Graphics)
+numComments=5
