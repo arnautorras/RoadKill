@@ -76,6 +76,9 @@ public class Game extends JPanel implements KeyListener
         
     }
     
+    
+    //Precondition: The given Obstacle list must contain at least 40 obstacles
+    //Postcondition: Returns the list with new Obstacles in different spots
     public Obstacle[] mixedUp(Obstacle[] list){
         int count = 0;
         int y = 50;
@@ -111,6 +114,7 @@ public class Game extends JPanel implements KeyListener
         }
     }
     
+    //This method resets everything but keeps the highscore
     public void newGame(){
         obstacles = mixedUp(obstacles);
         player.reset();
@@ -122,6 +126,7 @@ public class Game extends JPanel implements KeyListener
         gameOver = false;
     }
     
+    //Changes the level and increases the speeds of the cars
     public void levelUp(){
         player.resetLocation();
         player.levelUp();
@@ -132,6 +137,7 @@ public class Game extends JPanel implements KeyListener
         obstacles = mixedUp(obstacles);
     }
     
+    //Moves all cars
     public void moveCars(){
         for(int j = 0; j < 3; j++){
             roads[j].moveCars();
@@ -166,6 +172,7 @@ public class Game extends JPanel implements KeyListener
         }
     }
     
+    //Draws the background grass
     public void drawGrass(Graphics page){
         for(int y = 0; y < HEIGHT; y+=50){
             for(int x = 0; x < WIDTH; x+=50){
@@ -212,7 +219,7 @@ public class Game extends JPanel implements KeyListener
                 }
             }
             if(coinPresent(player.getX(), player.getY())){
-                player.addPoints(3);
+                player.addPoints(5);
             }
             else if(heartPresent(player.getX(), player.getY())){
                 player.addLives(1);
@@ -229,10 +236,14 @@ public class Game extends JPanel implements KeyListener
         }
     }
     
+    //Decreses the speed of all cars
     public void slowDownCars(){
-        
+        for(int j = 0; j < 3; j++){
+            roads[j].slowDownCars();
+        }
     }
     
+    //Says whether or not a coin is present on a certain spot
     public boolean coinPresent(int x, int y){
         for(int j = 0; j < 3; j++){
             if(roads[j].hasCoin()){
@@ -245,6 +256,7 @@ public class Game extends JPanel implements KeyListener
         return false;
     }
     
+    //Says whether or not a heart is present on a certain spot
     public boolean heartPresent(int x, int y){
         for(int j = 0; j < 3; j++){
             if(roads[j].hasHeart()){
@@ -257,6 +269,7 @@ public class Game extends JPanel implements KeyListener
         return false;
     }
     
+    //Says whether or not a clock is present on a certain spot
     public boolean clockPresent(int x, int y){
         for(int j = 0; j < 3; j++){
             if(roads[j].hasClock()){
@@ -269,6 +282,7 @@ public class Game extends JPanel implements KeyListener
         return false;
     }
     
+    ////Says whether or not an obstacle is present on a certain spot
     public boolean occupied(int x, int y){
         for(int i = 0; i < obstacles.length; i++){
             if (obstacles[i].getX() == x && obstacles[i].getY() == y){
@@ -278,6 +292,8 @@ public class Game extends JPanel implements KeyListener
         return false;
     }
     
+    //Checks whether the player is being hit by a car and calls different
+    //methods depending on the situation
     public void checkIfKilled(){
         int py = player.getY();
         if(py == 100){
@@ -309,6 +325,7 @@ public class Game extends JPanel implements KeyListener
         }
     }
     
+    //Subtracts a life from player and empties one of the hearts from the screen
     public void subtractLife(){
         player.subtractLife();
         int count = 2;
@@ -321,6 +338,7 @@ public class Game extends JPanel implements KeyListener
         }
     }
     
+    //Adds a heart to the screen
     public void addHeart(){
         int count = 0;
         while(count < 3){
@@ -332,6 +350,7 @@ public class Game extends JPanel implements KeyListener
         }
     }
     
+    //Returns true if player is on a road
     public boolean onRoad(int y){
         if(y == 100 || y == 350 || y == 600){
             return true;
@@ -339,10 +358,12 @@ public class Game extends JPanel implements KeyListener
         return false;
     }
     
+    //Ends the game
     public void endGame(){
         gameOver = true;
         player.die();
     }
+    
     //not used but must be present
     public void keyTyped( KeyEvent event )
     {

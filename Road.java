@@ -41,13 +41,16 @@ public class Road extends JPanel
     }
     
     public void getCoinHeartOrClock(){
-        if((int)(Math.random()*5) == 1){
+        coin=null;
+        life = null;
+        clock = null;
+        if((int)(Math.random()*7) == 1){
             coin = new Coin((int)(Math.random()*20)*50,y);
         }
-        else if((int)(Math.random()*10) == 1){
+        else if((int)(Math.random()*5) == 1 && vehicles[0].getSpeed() > 10){
             life = new Life((int)(Math.random()*20)*50,y);
         }
-        else if((int)(Math.random()*1) == 0){
+        else if((int)(Math.random()*3) == 1 && vehicles[0].getSpeed() > 15){
             clock = new Clock((int)(Math.random()*20)*50,y);
         }
     }
@@ -116,6 +119,7 @@ public class Road extends JPanel
         }
     }
     
+    
     public void drawHeart(Graphics page){
         if(life != null){
             life.draw(page);
@@ -157,6 +161,13 @@ public class Road extends JPanel
             vehicles[i].speedUp(speed, change);
         }
     }
+    
+    public void slowDownCars(){
+        for(int i = 0; i < 3; i++){
+            vehicles[i].slowDown();
+        }
+    }
+    
     
     public void draw( Graphics page )
     {
